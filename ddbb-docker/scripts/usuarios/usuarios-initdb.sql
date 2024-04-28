@@ -1,0 +1,7 @@
+CREATE TABLE usuarios (
+    usuario_id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    ref VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    contrasena VARCHAR(255) NOT NULL
+);
