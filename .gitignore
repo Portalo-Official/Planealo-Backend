@@ -1,3 +1,25 @@
+# Proyecto Eclipse
+.metadata/
+.localhistory/
+.recommenders/
+*.iml
+*.ipr
+*.iws
+.settings/
+.classpath
+.project
+.factorypath
+
+# Archivos y directorios generados por herramientas de construcción
+/target/
+/build/
+/out/
+/bin/
+/tmp/
+*.tmp
+*.bak
+*.swp
+
 # Compiled class file
 *.class
 
@@ -22,3 +44,30 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Archivos Docker generados localmente
+docker-compose.override.yml
+
+# Archivos y directorios temporales de Docker
+**/Dockerfile.*.tmp
+
+# Volúmenes y datos generados por Docker que no se deberían versionar
+**/data/
+
+# Archivos de configuración sensibles que podrían contener secretos
+**/.env
+**/.dockerenv
+
+# Ignorar archivos de certificados, ya que pueden contener información sensible
+**/*.cert
+**/*.key
+**/*.pem
+
+# Archivos de configuración que pueden contener información sensible
+**/application.properties
+**/application.yml
+**/application.yaml
+
+# Archivos de Spring local configuration (para desarrollo)
+**/application-local.yml
+**/application-local.properties
