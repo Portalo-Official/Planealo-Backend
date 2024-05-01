@@ -1,6 +1,7 @@
 package com.planealo.harninasantiago.model.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,13 +15,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 @Table(name = "usuarios")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="usuario_id")
 	private Long id;
-	
+
 	@Column(name = "nombre", nullable = false, length = 255 )
 	private String nombre;
 	
@@ -32,5 +34,14 @@ public class Usuario {
 	
 	@Column(name = "contrasena", nullable = false, length = 255)
 	private String password;
+	
+	
+	public Usuario(String nombre, String referencia, String email, String password) {
+		super();
+		this.nombre = nombre;
+		this.referencia = referencia;
+		this.email = email;
+		this.password = password;
+	}
 	
 }
