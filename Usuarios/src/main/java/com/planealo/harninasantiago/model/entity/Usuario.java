@@ -44,6 +44,8 @@ public class Usuario {
 	@Transient //TODO No implement into ddbb
 	private LocalDateTime fechaUltimaActualizacion;
 	
+	@Transient //TODO No implement into ddbb
+	private LocalDateTime ultimeInicioSesion;
 	
 	
 	public Usuario(String nombre, String referencia, String email, String password) {

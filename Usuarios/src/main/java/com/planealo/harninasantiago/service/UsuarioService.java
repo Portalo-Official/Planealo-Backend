@@ -4,23 +4,32 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.planealo.harninasantiago.model.dto.UsuarioDTO;
 import com.planealo.harninasantiago.model.entity.Usuario;
+import com.planealo.harninasantiago.model.mapper.UsuarioMapper;
 import com.planealo.harninasantiago.repository.IUsuarioRepository;
 
 @Service
-public class UsuarioService implements IService<Usuario>{
+public class UsuarioService implements IService<UsuarioDTO>{
 	
 	private final IUsuarioRepository usuarioRepo;
-	
-	public UsuarioService(IUsuarioRepository usuarioRepo) {
+	private final UsuarioMapper usuarioMapper;
+	public UsuarioService(IUsuarioRepository usuarioRepo,
+						  UsuarioMapper usuarioMapper) {
 		super();
 		this.usuarioRepo = usuarioRepo;
+		this.usuarioMapper= usuarioMapper;
 	}
 
 	@Override
-	public Usuario add(Usuario t) {
+	public UsuarioDTO add(UsuarioDTO t) {
 		// TODO Auto-generated method stub
-		return this.usuarioRepo.save(t);
+		
+		
+		
+		Usuario user = mapDTOtoUsuario(t);
+		return mapUsuarioToDTO(this.usuarioRepo.save(user));
+		
 	}
 
 	@Override
@@ -30,27 +39,35 @@ public class UsuarioService implements IService<Usuario>{
 	}
 
 	@Override
-	public Usuario getById(long id) {
+	public UsuarioDTO getById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Usuario> getAll() {
+	public List<UsuarioDTO> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean addAll(List<Usuario> t) {
+	public boolean addAll(List<UsuarioDTO> t) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Usuario editUser() {
+	public UsuarioDTO editUser() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+    public Usuario mapDTOtoUsuario(UsuarioDTO dto) {
+	        return usuarioMapper.usuarioDTOToUsuario(dto);
+	    }
+
+    public UsuarioDTO mapUsuarioToDTO(Usuario usuario) {
+        return usuarioMapper.usuarioToUsuarioDTO(usuario);
+    }
 	
 }
