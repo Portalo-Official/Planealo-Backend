@@ -12,6 +12,7 @@ class UserRepositoryTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
+		assertTrue(true);
 	}
 
 	@AfterAll

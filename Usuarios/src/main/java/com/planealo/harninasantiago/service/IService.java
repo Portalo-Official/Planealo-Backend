@@ -13,4 +13,6 @@ public interface IService<T> {
 	public List<T> getAll();
 	
 	public boolean addAll(List<T> t);
+	
+	public T editUser();
 }

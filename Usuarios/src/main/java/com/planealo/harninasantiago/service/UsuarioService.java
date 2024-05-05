@@ -46,5 +46,11 @@ public class UsuarioService implements IService<Usuario>{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public Usuario editUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

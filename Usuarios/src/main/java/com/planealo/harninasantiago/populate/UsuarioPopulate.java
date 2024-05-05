@@ -2,18 +2,30 @@ package com.planealo.harninasantiago.populate;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.planealo.harninasantiago.model.entity.Usuario;
 import com.planealo.harninasantiago.service.UsuarioService;
+
+import jakarta.annotation.PostConstruct;
 @Component
 public class UsuarioPopulate implements Populate{
 	private final UsuarioService usuarioService;
-
+	@Value("${spring.jpa.hibernate.ddl-auto}")
+	private String ddbbStatus;
+	
 	public UsuarioPopulate(UsuarioService usuarioService) {
 		super();
 		this.usuarioService = usuarioService;
-		initPopulate();
+		
+	}
+	
+	@PostConstruct
+	public void init() {
+		if(!ddbbStatus.equals("update")) {
+			initPopulate();
+		}
 	}
 
 	@Override
