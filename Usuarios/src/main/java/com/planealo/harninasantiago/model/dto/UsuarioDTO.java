@@ -1,5 +1,5 @@
 package com.planealo.harninasantiago.model.dto;
 
-public class UsuarioDTO {
+public record UsuarioDTO(String ref, String nombre, String email) {
 
 }
