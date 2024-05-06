@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import com.planealo.harninasantiago.model.dto.UsuarioDTO;
-import com.planealo.harninasantiago.model.entity.Usuario;
 import com.planealo.harninasantiago.service.UsuarioService;
 
 import jakarta.annotation.PostConstruct;
