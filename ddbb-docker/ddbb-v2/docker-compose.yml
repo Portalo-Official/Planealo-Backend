@@ -1,0 +1,56 @@
+version: '3.8'
+services:
+  # ? DB Usuarios
+  db_usuarios:
+    image: postgres:bookworm
+    environment:
+      POSTGRES_USER: user_usuarios
+      POSTGRES_PASSWORD: psswrd_usuarios
+      POSTGRES_MULTIPLE_DATABASES: usuarios_planealo_prod,usuarios_planealo_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - usuarios-data:/var/lib/postgresql/data
+      - ./scripts/usuarios:/docker-entrypoint-initdb.d
+  # ? DB Plan
+  db_plan:
+    image: postgres:bookworm
+    environment:
+      POSTGRES_DB: planes_planealo
+      POSTGRES_USER: user_plan
+      POSTGRES_PASSWORD: psswrd_plan
+    ports:
+      - "5433:5432"
+    volumes:
+      - plan-data:/var/lib/postgresql/data
+      - ./scripts/planes:/docker-entrypoint-initdb.d
+  # ? DB Invitaciones
+  db_invitaciones:
+    image: postgres:bookworm
+    environment:
+      POSTGRES_DB: invitaciones_planealo
+      POSTGRES_USER: user_invitaciones
+      POSTGRES_PASSWORD: psswrd_invitaciones
+    ports:
+      - "5434:5432"
+    volumes:
+      - invitaciones-data:/var/lib/postgresql/data
+      - ./scripts/invitaciones:/docker-entrypoint-initdb.d
+  # ? Configuración de pgAdmin
+  pgadmin:
+    image: dpage/pgadmin4:8.4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "planealo@planealo.com"  
+      PGADMIN_DEFAULT_PASSWORD: "admin"  
+    ports:
+      - "5050:80"  # Expone pgAdmin en el puerto local 5050
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin  # Volumen para almacenar datos de configuración y sesiones
+    restart: always
+# ? Volumenes
+volumes:
+  usuarios-data:
+  plan-data:
+  invitaciones-data:
+  pgadmin-data:
+    driver: local
