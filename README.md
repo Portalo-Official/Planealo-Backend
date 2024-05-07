@@ -5,4 +5,4 @@ TFG del Grado FP DAM
 
 Contiene el docker-compose para levantar las base de datos.
 
-*ddbb-v1* es la que se usa actualmente.
+**ddbb-v1** es la que se usa actualmente.
