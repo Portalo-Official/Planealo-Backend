@@ -2,7 +2,7 @@ package com.planealo.harninasantiago.service;
 
 import java.util.List;
 
-public interface IService<T> {
+public interface IService<T, Ref> {
 
 	public T add(T t);
 	
@@ -14,5 +14,5 @@ public interface IService<T> {
 	
 	public boolean addAll(List<T> t);
 	
-	public T editUser();
+	public T editUser(Ref ref, T t);
 }

@@ -10,10 +10,11 @@ import com.planealo.harninasantiago.model.mapper.UsuarioMapper;
 import com.planealo.harninasantiago.repository.IUsuarioRepository;
 
 @Service
-public class UsuarioService implements IService<UsuarioDTO>{
+public class UsuarioService implements IService<UsuarioDTO, String>{
 	
 	private final IUsuarioRepository usuarioRepo;
 	private final UsuarioMapper usuarioMapper;
+	
 	public UsuarioService(IUsuarioRepository usuarioRepo,
 						  UsuarioMapper usuarioMapper) {
 		super();
@@ -57,14 +58,14 @@ public class UsuarioService implements IService<UsuarioDTO>{
 	}
 
 	@Override
-	public UsuarioDTO editUser() {
+	public UsuarioDTO editUser(String ref, UsuarioDTO usuarioModificado) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
     public Usuario mapDTOtoUsuario(UsuarioDTO dto) {
 	        return usuarioMapper.usuarioDTOToUsuario(dto);
-	    }
+	}
 
     public UsuarioDTO mapUsuarioToDTO(Usuario usuario) {
         return usuarioMapper.usuarioToUsuarioDTO(usuario);
