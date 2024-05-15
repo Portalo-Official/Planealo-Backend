@@ -64,9 +64,10 @@ docker-compose.override.yml
 **/*.pem
 
 # Archivos de configuración que pueden contener información sensible
-**/application.properties
-**/application.yml
-**/application.yaml
+#**/application.properties
+#**/application.yml
+#**/application.yaml
 
 # Archivos de Spring local configuration (para desarrollo)
 **/application-local.yml
+**/application-local.properties
