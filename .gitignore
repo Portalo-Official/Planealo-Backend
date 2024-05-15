@@ -70,4 +70,3 @@ docker-compose.override.yml
 
 # Archivos de Spring local configuration (para desarrollo)
 **/application-local.yml
-**/application-local.properties
